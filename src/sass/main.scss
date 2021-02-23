@@ -1,0 +1,261 @@
+// variables
+$font-primary: 'Open Sans', sans-serif;
+$color-primary: #f48982;
+$color-secondary: #fbdb89;
+$color-bg: #f9f5f3;
+$color-text: #615551;
+$color-gradient: linear-gradient(
+	to right bottom,
+	$color-secondary,
+	$color-primary
+);
+// Basic reset
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	outline: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 1.6rem;
+	min-height: 100vh;
+	width: 100%;
+	background: $color-gradient;
+	font-family: $font-primary;
+	color: $color-text;
+	padding-top: 5rem;
+}
+
+// reuseable classes
+.btn {
+	background: none;
+	border: none;
+	width: 4rem;
+	height: 4rem;
+	cursor: pointer;
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+textarea,
+input[type='text'] {
+	padding: 1rem 2rem;
+	border: 2px solid $color-primary;
+	font-size: 1.8rem;
+	font-weight: 500;
+	transition: all 0.4s cubic-bezier(0.86, 0.49, 0.83, 0.67);
+	display: block;
+}
+
+.row {
+	width: 95%;
+	max-width: 72rem;
+	margin: 0 auto;
+}
+
+.heading {
+	margin-top: 3.5rem;
+	margin-bottom: 3.5rem;
+	text-align: center;
+	line-height: 1;
+	transform: skewY(-6deg);
+	font-weight: 600;
+	text-transform: uppercase;
+	span {
+		display: inline-block;
+		padding: 1.3rem 2rem;
+		background: $color-gradient;
+		color: #fff;
+	}
+}
+
+// ====================================================
+// ====================================================
+
+.app {
+	width: 100%;
+	background: $color-bg;
+	border-radius: 2rem;
+	overflow: hidden;
+	min-height: 20rem;
+	padding-bottom: 3.5rem;
+}
+
+.d-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.nav {
+	background: #fff;
+	padding: 1.5rem 0;
+	.search {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.btn {
+			margin-right: 1rem;
+		}
+
+		.search__input {
+			transform-origin: left;
+			transform: scaleX(0);
+		}
+
+		&.active {
+			.search__input {
+				transform: scaleX(1);
+			}
+		}
+	}
+
+	.note__form {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		position: relative;
+		z-index: 2;
+
+		.close__note__form {
+			// margin-right: 1rem;
+			// transform: translateX(-32rem);
+			transition: all 0.4s cubic-bezier(0.86, 0.49, 0.83, 0.67);
+			transition-delay: 0.4s;
+		}
+		.btn {
+			width: 4rem;
+			svg {
+				width: 4rem;
+			}
+		}
+		.note__input {
+			max-width: 30rem;
+			min-width: 30rem;
+			display: flex;
+			position: absolute;
+			top: 0;
+			right: 1.5rem;
+			transform: scaleX(0);
+			transform: scaleY(0);
+			transform-origin: top right;
+			transition: all 0.4s cubic-bezier(0.86, 0.49, 0.83, 0.67);
+			transition-delay: 0s;
+			.input__group {
+				margin: 0 1rem 1.5rem 1rem;
+				input {
+					margin-bottom: 1rem;
+					width: 100%;
+				}
+				.note__body {
+					width: 100%;
+					height: 10rem;
+					font-size: 16px;
+				}
+			}
+		}
+
+		&.active {
+			.close__note__form {
+				transform: translateX(-32rem) rotate(225deg);
+				transition-delay: 0s;
+			}
+
+			.note__input {
+				transform: scaleX(1);
+				transform: scaleY(1);
+				transition-delay: 0.4s;
+			}
+		}
+	}
+}
+
+.notes__container {
+	width: 100%;
+	background: #fff;
+	border-radius: 10px;
+	padding: 0 1rem;
+	box-shadow: 0 10px 20px rgba($color-primary, 0.1);
+	transition: all 0.4s cubic-bezier(0.86, 0.49, 0.83, 0.67);
+	max-height: 40rem;
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		width: 1rem;
+	}
+
+	&::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 6px rgba($color-primary, .8);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $color-primary;
+		border-radius: 100px;
+	}
+
+	.note {
+		padding: 1.5rem;
+		overflow: hidden;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		transition: all 0.4s cubic-bezier(0.86, 0.49, 0.83, 0.67);
+		&:not(:last-child) {
+			border-bottom: 1px solid $color-primary;
+		}
+
+		.note__content {
+			.note__heading {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+			}
+		}
+
+		.remove__note {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			transform: translateX(52%);
+			transition: all 0.4s cubic-bezier(0.86, 0.49, 0.83, 0.67);
+			.btn {
+				&:not(:last-child) {
+					margin: 0 1.5rem;
+				}
+			}
+		}
+
+		&.active {
+			.remove__note {
+				transform: translateX(0);
+				.btn {
+					&:not(:last-child) {
+						margin: 0 1.5rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+.error {
+	text-align: center;
+	padding: 2rem;
+	svg {
+		width: 4rem;
+		height: 4rem;
+		fill: $color-primary;
+	}
+	p {
+		font-size: 2rem;
+		text-transform: capitalize;
+	}
+}

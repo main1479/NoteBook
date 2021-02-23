@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>NoteBook</title>
+		<link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="src/sass/main.scss" />
+		<script defer src="src/js/controller.js"></script>
+	</head>
+	<body>
+		<div class="row">
+			<div class="app">
+				<nav class="nav">
+					<div class="row d-flex">
+						<div class="search">
+							<button class="btn toggle__search">
+								<svg>
+									<use xlink:href="src\img\icons.svg#icon-search"></use>
+								</svg>
+							</button>
+							<input
+								type="text"
+								class="search__input"
+								placeholder="Search Your Note"
+							/>
+						</div>
+						<div class="note__form">
+							<button class="btn close__note__form">
+								<svg>
+									<use xlink:href="src\img\icons.svg#icon-add"></use>
+								</svg>
+							</button>
+							<form class="note__input">
+								<div class="input__group">
+									<input
+										type="text"
+										class="note__title"
+										placeholder="Note Title"
+                              required
+                              name="title"
+									/>
+									<textarea
+										class="note__body"
+										placeholder="Write Your Note"
+                              required
+                              name="text"
+									></textarea>
+								</div>
+								<button type="submit" class="btn">
+									<svg>
+										<use xlink:href="src\img\icons.svg#icon-add"></use>
+									</svg>
+								</button>
+							</form>
+						</div>
+					</div>
+				</nav>
+
+            <main>
+               <div class="row">
+                  <h1 class="heading"><span>Your Awesome</span> <br>
+                     <span>Notes</span>
+                  </h1>
+               </div>
+               <div class="row">
+                  <div class="notes__container">
+                     
+                     <!-- <div class="note">
+                        <div class="note__content">
+                           <h3 class="note__heading">Note Title</h3>
+                           <p class="note__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab maiores cupiditate culpa quasi alias dolore in.</p>
+                        </div>
+                        <div class="remove__note">
+                           <button class="btn btn__remove-note">
+                              <svg>
+                                 <use xlink:href="src\img\icons.svg#icon-remove"></use>
+                              </svg>
+                           </button>
+                           <button class="btn remove__note-confirm">
+                              <svg>
+                                 <use xlink:href="src\img\icons.svg#icon-check"></use>
+                              </svg>
+                           </button>
+                        </div>
+                     </div> -->
+
+                     <!-- <div class="error">
+                        <svg>
+                           <use xlink:href="src\img\icons.svg#icon-smile"></use>
+                        </svg> 
+                        <p>You Don't Have Any Notes ;)</p>
+                     </div> -->
+                  </div>
+               </div>
+            </main>
+			</div>
+		</div>
+	</body>
+</html>
