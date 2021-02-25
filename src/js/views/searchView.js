@@ -12,9 +12,10 @@ class SearchView extends View {
 	}
 
 	_showSearchedNote() {
-		this._searchInput.addEventListener('keypress', this.searchIteam.bind(this));
+		this._searchInput.addEventListener('keyup', this.searchIteam.bind(this));
 	}
-	searchIteam(e) {
+	searchIteam() {
+		
 		let filterText = this._searchInput.value.toLowerCase();
 
 		let notes = this._notesContainer.querySelectorAll('.note');
@@ -32,6 +33,7 @@ class SearchView extends View {
 	}
 
 	toggleSearch() {
+		this._searchInput.focus();
 		this._parentEl.classList.toggle('active');
 
 		if (this._parentEl.classList.contains('active')) {
@@ -41,14 +43,13 @@ class SearchView extends View {
             </svg>
          `;
 			this._showSearchedNote();
-         
 		} else {
 			this._toggleBtn.innerHTML = `
             <svg>
                <use xlink:href="${icons}#icon-search"></use>
             </svg>
          `;
-         this._searchInput.value = '';
+			this._searchInput.value = '';
 		}
 	}
 	_handlerToggleSearch() {

@@ -22,6 +22,8 @@ const controlForm = function (note) {
 const controlRemoveNote = function (id) {
 	model.removeNote(id);
 	loadNotesView.render(model.state.notes);
+	if (model.state.notes.length === 0)
+		loadNotesView.renderError(`You don't have any notes`);
 };
 
 const init = function () {

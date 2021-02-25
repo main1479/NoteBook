@@ -249,6 +249,10 @@ input[type='text'] {
 .error {
 	text-align: center;
 	padding: 2rem;
+	min-height: 25rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	svg {
 		width: 4rem;
 		height: 4rem;
