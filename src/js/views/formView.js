@@ -1,4 +1,4 @@
-import icons from 'url:../../img/icons.svg';
+import icons from '../../img/icons.svg';
 import View from './view.js';
 class FormView extends View {
 	_parentEl = document.querySelector('.note__form');
@@ -49,7 +49,7 @@ class FormView extends View {
          ></textarea>
       </div>
       <button type="submit" class="btn">
-         <svg>
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <use xlink:href="${icons}#icon-add"></use>
          </svg>
       </button>

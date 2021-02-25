@@ -1,4 +1,4 @@
-import icons from 'url:../../img/icons.svg';
+import icons from '../../img/icons.svg';
 import View from './view.js';
 class LoadNotesView extends View {
 	_parentEl = document.querySelector('.notes__container');
@@ -33,12 +33,12 @@ class LoadNotesView extends View {
                </div>
                <div class="remove__note">
                   <button class="btn btn__remove-note">
-                     <svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <use xlink:href="${icons}#icon-remove"></use>
                      </svg>
                   </button>
                   <button class="btn remove__note-confirm" data-id="${note.id}">
-                     <svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <use xlink:href="${icons}#icon-check"></use>
                      </svg>
                   </button>

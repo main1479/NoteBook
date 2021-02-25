@@ -1,5 +1,5 @@
 import View from './view.js';
-import icons from 'url:../../img/icons.svg';
+import icons from '../../img/icons.svg';
 
 class SearchView extends View {
 	_parentEl = document.querySelector('.search');
@@ -38,14 +38,14 @@ class SearchView extends View {
 
 		if (this._parentEl.classList.contains('active')) {
 			this._toggleBtn.innerHTML = `
-            <svg>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                <use xlink:href="${icons}#icon-remove"></use>
             </svg>
          `;
 			this._showSearchedNote();
 		} else {
 			this._toggleBtn.innerHTML = `
-            <svg>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                <use xlink:href="${icons}#icon-search"></use>
             </svg>
          `;

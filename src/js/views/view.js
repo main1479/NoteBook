@@ -1,4 +1,4 @@
-import icons from 'url:../../img/icons.svg';
+import icons from '../../img/icons.svg';
 export default class View {
 	_clear() {
 		this._parentEl.innerHTML = '';
@@ -16,7 +16,7 @@ export default class View {
 	renderError(message = this.errorMessage) {
 		const markup = `
 			<div class="error">
-				<svg>
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="${icons}#icon-smile"></use>
 				</svg> 
 				<p>${message}</p>
